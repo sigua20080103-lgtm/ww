@@ -17,31 +17,45 @@
 在终端 (Terminal) 中运行以下命令安装必要的包：
 ```bash
 pip3 install requests icalendar
+```
+*(注：如果使用的是较新的 macOS 且提示被系统拦截，可以尝试使用虚拟环境，或在命令后加上 `--break-system-packages`)*
 
-(注：如果使用的是较新的 macOS 且提示被系统拦截，可以尝试使用虚拟环境，或在命令后加上 --break-system-packages)
-2. 安装 Tkinter 图形库（如 macOS 默认缺失）：
+**2. 安装 Tkinter 图形库（如 macOS 默认缺失）：**
+```bash
 brew install python-tk
+```
 
-⚙️ 配置与使用
-安全提示：本仓库的代码已抹除真实的 API Key，使用前请先配置您自己的 Key！
-	1.	前往 DeepSeek 开放平台 注册并获取您的 API Key。
-	2.	用文本编辑器打开 calendar_app.py，找到文件开头的 配置区：
-# ================= 配置区 =================
-API_KEY = "替换为您的真实_DEEPSEEK_API_KEY"
-API_URL = "[https://api.deepseek.com/chat/completions](https://api.deepseek.com/chat/completions)"
-MODEL_NAME = "deepseek-v4-pro"
-# ==========================================
+## ⚙️ 配置与使用
 
-	3.	保存后，在终端运行该脚本即可弹出智能助手窗口：
-python3 calendar_app.py
+**安全提示：本仓库的代码已抹除真实的 API Key，使用前请先配置您自己的 Key！**
 
-📦 进阶：打包为独立的 Mac App
-如果您不想每次都通过终端运行，可以使用 PyInstaller 将其打包成一个标准的桌面 .app 软件（可直接固定到程序坞）：
-	1.	安装打包工具：
-pip3 install pyinstaller
+1. 前往 [DeepSeek 开放平台](https://platform.deepseek.com/) 注册并获取您的 `API Key`。
+2. 用文本编辑器打开 `calendar_app.py`，找到文件开头的 **配置区**：
+   ```python
+   # ================= 配置区 =================
+   API_KEY = "替换为您的真实_DEEPSEEK_API_KEY"
+   API_URL = "https://api.deepseek.com/chat/completions"
+   MODEL_NAME = "deepseek-v4-pro"
+   # ==========================================
+   ```
+3. 保存后，在终端运行该脚本即可弹出智能助手窗口：
+   ```bash
+   python3 calendar_app.py
+   ```
 
-	2.	在脚本所在目录执行打包命令：
-python3 -m PyInstaller --noconsole --windowed calendar_app.py
+## 📦 进阶：打包为独立的 Mac App
 
-	3.	打包完成后，在生成的 dist/ 文件夹下即可找到 calendar_app.app 应用程序。双击即可使用！
-本项目基于 MIT License 开源，欢迎 Fork、提交 PR 共同优化这个提效小工具！
+如果您不想每次都通过终端运行，可以使用 `PyInstaller` 将其打包成一个标准的桌面 `.app` 软件（可直接固定到程序坞）：
+
+1. 安装打包工具：
+   ```bash
+   pip3 install pyinstaller
+   ```
+2. 在脚本所在目录执行打包命令：
+   ```bash
+   python3 -m PyInstaller --noconsole --windowed calendar_app.py
+   ```
+3. 打包完成后，在生成的 `dist/` 文件夹下即可找到 `calendar_app.app` 应用程序。双击即可使用！
+
+---
+*本项目基于 MIT License 开源，欢迎 Fork、提交 PR 共同优化这个提效小工具！*
